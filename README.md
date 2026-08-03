@@ -1,5 +1,6 @@
-# Bibuntu
+![Bibuntu](docs/Bibuntu.jpeg)
 
+# Bibuntu
 A cursor theme for Ubuntu based on Bibata.
 
 Portable **XCursor** theme (Wayland + X11). Hotspots and aliases match **Bibata Modern**.
