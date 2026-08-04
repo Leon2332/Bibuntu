@@ -42,11 +42,10 @@
      width="113"
      height="113"
      rx="48.5"
-     fill="#179dd8"
+     fill="#e95420"
      stroke="#ffffff"
      stroke-width="17"
-     id="rect1"
-     style="filter:url(#filter0_d_3519_40);fill:#e95420;fill-opacity:1" />
+     id="rect1" />
   <rect
      x="138"
      y="46"
@@ -54,49 +53,5 @@
      height="52"
      rx="20"
      fill="#ffffff"
-     id="rect2"
-     style="filter:url(#filter0_d_3519_40)" />
-  <defs
-     id="defs4">
-    <filter
-       id="filter0_d_3519_40"
-       x="93.88"
-       y="7"
-       width="140.24"
-       height="140.24"
-       filterUnits="userSpaceOnUse"
-       color-interpolation-filters="sRGB">
-      <feFlood
-         flood-opacity="0"
-         result="BackgroundImageFix"
-         id="feFlood2" />
-      <feColorMatrix
-         in="SourceAlpha"
-         type="matrix"
-         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-         result="hardAlpha"
-         id="feColorMatrix2" />
-      <feOffset
-         dy="5.12"
-         id="feOffset2" />
-      <feGaussianBlur
-         stdDeviation="2.56"
-         id="feGaussianBlur2" />
-      <feColorMatrix
-         type="matrix"
-         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"
-         id="feColorMatrix3" />
-      <feBlend
-         mode="normal"
-         in2="BackgroundImageFix"
-         result="effect1_dropShadow_3519_40"
-         id="feBlend3" />
-      <feBlend
-         mode="normal"
-         in="SourceGraphic"
-         in2="effect1_dropShadow_3519_40"
-         result="shape"
-         id="feBlend4" />
-    </filter>
-  </defs>
-</svg>
+     id="rect2" />
+  </svg>

@@ -42,59 +42,14 @@
      width="113"
      height="113"
      rx="48.5"
-     fill="#06b231"
+     fill="#e95420"
      stroke="#ffffff"
      stroke-width="17"
-     id="rect1"
-     style="filter:url(#filter0_d_3519_45);fill:#e95420;fill-opacity:1" />
+     id="rect1" />
   <path
      fill-rule="evenodd"
      clip-rule="evenodd"
      d="m 157.414,77.598 h -21.322 c -3.365,0 -6.092,-2.7275 -6.092,-6.092 0,-3.3645 2.727,-6.092 6.092,-6.092 h 21.322 V 44.092 c 0,-3.3645 2.727,-6.092 6.092,-6.092 3.364,0 6.092,2.7275 6.092,6.092 v 21.322 h 21.322 c 3.364,0 6.092,2.7275 6.092,6.092 0,3.3645 -2.728,6.092 -6.092,6.092 H 169.598 V 98.92 c 0,3.364 -2.728,6.092 -6.092,6.092 -3.365,0 -6.092,-2.728 -6.092,-6.0921 z"
      fill="#ffffff"
-     id="path2"
-     style="filter:url(#filter0_d_3519_45)" />
-  <defs
-     id="defs4">
-    <filter
-       id="filter0_d_3519_45"
-       x="93.88"
-       y="7"
-       width="140.24"
-       height="140.24"
-       filterUnits="userSpaceOnUse"
-       color-interpolation-filters="sRGB">
-      <feFlood
-         flood-opacity="0"
-         result="BackgroundImageFix"
-         id="feFlood2" />
-      <feColorMatrix
-         in="SourceAlpha"
-         type="matrix"
-         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-         result="hardAlpha"
-         id="feColorMatrix2" />
-      <feOffset
-         dy="5.12"
-         id="feOffset2" />
-      <feGaussianBlur
-         stdDeviation="2.56"
-         id="feGaussianBlur2" />
-      <feColorMatrix
-         type="matrix"
-         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"
-         id="feColorMatrix3" />
-      <feBlend
-         mode="normal"
-         in2="BackgroundImageFix"
-         result="effect1_dropShadow_3519_45"
-         id="feBlend3" />
-      <feBlend
-         mode="normal"
-         in="SourceGraphic"
-         in2="effect1_dropShadow_3519_45"
-         result="shape"
-         id="feBlend4" />
-    </filter>
-  </defs>
-</svg>
+     id="path2" />
+  </svg>

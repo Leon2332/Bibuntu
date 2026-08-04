@@ -32,13 +32,11 @@
      inkscape:current-layer="svg1" />
   <path
      d="M218.026 67.8397H218.021H81.2955C81.2952 67.8397 81.295 67.8397 81.2947 67.8397C79.1331 67.8396 76.3911 68.2308 73.9394 69.372C71.5908 70.4653 67.84 73.1681 67.84 78.2536V225.085C67.84 226.83 68.1899 228.835 69.3833 230.693C70.6049 232.594 72.3008 233.704 73.8569 234.34C76.3518 235.36 79.3855 235.45 81.3608 235.509C81.4456 235.512 81.5285 235.514 81.6092 235.517L81.9562 235.527L82.3023 235.501C117.984 232.727 152.378 214.089 179.346 186.867C206.337 159.623 226.294 123.391 232.835 84.686L232.877 84.44L232.899 84.1915C233.683 75.4604 226.852 67.847 218.026 67.8397Z"
-     fill="#4FADDF"
+     fill="#e95420"
      stroke="#FFFFFF"
      stroke-width="12.8"
-     id="path1"
-     style="fill:#e95420;fill-opacity:1" />
+     id="path1" />
   <g
-     filter="url(#filter0_d_3519_188)"
      id="g3">
     <path
        fill-rule="evenodd"
@@ -54,47 +52,4 @@
        stroke-linejoin="round"
        id="path3" />
   </g>
-  <defs
-     id="defs5">
-    <filter
-       id="filter0_d_3519_188"
-       x="11.5199"
-       y="12.7998"
-       width="117.76"
-       height="122.88"
-       filterUnits="userSpaceOnUse"
-       color-interpolation-filters="sRGB">
-      <feFlood
-         flood-opacity="0"
-         result="BackgroundImageFix"
-         id="feFlood3" />
-      <feColorMatrix
-         in="SourceAlpha"
-         type="matrix"
-         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-         result="hardAlpha"
-         id="feColorMatrix3" />
-      <feOffset
-         dy="5.12"
-         id="feOffset3" />
-      <feGaussianBlur
-         stdDeviation="3.2"
-         id="feGaussianBlur3" />
-      <feColorMatrix
-         type="matrix"
-         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"
-         id="feColorMatrix4" />
-      <feBlend
-         mode="normal"
-         in2="BackgroundImageFix"
-         result="effect1_dropShadow_3519_188"
-         id="feBlend4" />
-      <feBlend
-         mode="normal"
-         in="SourceGraphic"
-         in2="effect1_dropShadow_3519_188"
-         result="shape"
-         id="feBlend5" />
-    </filter>
-  </defs>
-</svg>
+  </svg>

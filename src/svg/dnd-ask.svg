@@ -38,66 +38,23 @@
      id="path1" />
   <path
      d="m 176.64,241.46 c 35.799,0 64.82,-29.021 64.82,-64.82 0,-35.799 -29.021,-64.82 -64.82,-64.82 -35.799,0 -64.82,29.021 -64.82,64.82 0,35.799 29.021,64.82 64.82,64.82 z"
-     fill="#f27400"
+     fill="#e95420"
      stroke="#ffffff"
      stroke-width="17"
      id="path2"
-     style="filter:url(#filter0_d_3624_19);fill:#e95420;fill-opacity:1"
      clip-path="url(#clipPath10)" />
   <path
      d="m 176.64,212.48 c 4.622,0 8.369,-3.761 8.369,-8.4 0,-4.639 -3.747,-8.4 -8.369,-8.4 -4.622,0 -8.369,3.761 -8.369,8.4 0,4.639 3.747,8.4 8.369,8.4 z"
      fill="#ffffff"
      id="path3"
-     style="filter:url(#filter0_d_3624_19)"
      clip-path="url(#clipPath9)" />
   <path
      d="m 176.64,140.8 c -11.999,0 -21.76,9.797 -21.76,21.84 v 2.1 h 16.738 v -2.1 c 0,-2.779 2.253,-5.04 5.022,-5.04 2.769,0 5.021,2.261 5.021,5.04 0,1.481 -0.647,2.882 -1.777,3.846 l -11.613,9.91 v 15.084 h 16.738 v -7.316 l 5.716,-4.877 c 4.877,-4.16 7.675,-10.228 7.675,-16.647 0,-12.043 -9.762,-21.84 -21.76,-21.84 z"
      fill="#ffffff"
      id="path4"
-     style="filter:url(#filter0_d_3624_19)"
      clip-path="url(#clipPath8)" />
   <defs
      id="defs7">
-    <filter
-       id="filter0_d_3624_19"
-       x="98.1998"
-       y="103.32"
-       width="156.88"
-       height="156.88"
-       filterUnits="userSpaceOnUse"
-       color-interpolation-filters="sRGB">
-      <feFlood
-         flood-opacity="0"
-         result="BackgroundImageFix"
-         id="feFlood5" />
-      <feColorMatrix
-         in="SourceAlpha"
-         type="matrix"
-         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-         result="hardAlpha"
-         id="feColorMatrix5" />
-      <feOffset
-         dy="5.12"
-         id="feOffset5" />
-      <feGaussianBlur
-         stdDeviation="2.56"
-         id="feGaussianBlur5" />
-      <feColorMatrix
-         type="matrix"
-         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"
-         id="feColorMatrix6" />
-      <feBlend
-         mode="normal"
-         in2="BackgroundImageFix"
-         result="effect1_dropShadow_3624_19"
-         id="feBlend6" />
-      <feBlend
-         mode="normal"
-         in="SourceGraphic"
-         in2="effect1_dropShadow_3624_19"
-         result="shape"
-         id="feBlend7" />
-    </filter>
     <clipPath
        clipPathUnits="userSpaceOnUse"
        id="clipPath8">

@@ -32,13 +32,11 @@
      inkscape:current-layer="svg1" />
   <path
      d="M39.2594 67.8397L39.2541 67.8397C30.4281 67.847 23.5974 75.4604 24.381 84.1915L24.4033 84.44L24.4448 84.686C30.9861 123.391 50.9434 159.623 77.9338 186.867C104.902 214.089 139.296 232.727 174.978 235.501L175.324 235.527L175.671 235.517C175.752 235.514 175.834 235.512 175.919 235.509C177.894 235.45 180.928 235.36 183.423 234.34C184.979 233.704 186.675 232.594 187.897 230.693C189.09 228.835 189.44 226.83 189.44 225.085V78.2536C189.44 73.1681 185.689 70.4653 183.341 69.372C180.889 68.2308 178.147 67.8396 175.985 67.8397C175.985 67.8397 175.985 67.8397 175.984 67.8397L39.2594 67.8397Z"
-     fill="#F1613A"
+     fill="#e95420"
      stroke="#FFFFFF"
      stroke-width="12.8"
-     id="path1"
-     style="fill:#e95420;fill-opacity:1" />
+     id="path1" />
   <g
-     filter="url(#filter0_d_3519_185)"
      id="g3">
     <path
        fill-rule="evenodd"
@@ -54,47 +52,4 @@
        stroke-linejoin="round"
        id="path3" />
   </g>
-  <defs
-     id="defs5">
-    <filter
-       id="filter0_d_3519_185"
-       x="128"
-       y="12.7998"
-       width="117.76"
-       height="122.88"
-       filterUnits="userSpaceOnUse"
-       color-interpolation-filters="sRGB">
-      <feFlood
-         flood-opacity="0"
-         result="BackgroundImageFix"
-         id="feFlood3" />
-      <feColorMatrix
-         in="SourceAlpha"
-         type="matrix"
-         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-         result="hardAlpha"
-         id="feColorMatrix3" />
-      <feOffset
-         dy="5.12"
-         id="feOffset3" />
-      <feGaussianBlur
-         stdDeviation="3.2"
-         id="feGaussianBlur3" />
-      <feColorMatrix
-         type="matrix"
-         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"
-         id="feColorMatrix4" />
-      <feBlend
-         mode="normal"
-         in2="BackgroundImageFix"
-         result="effect1_dropShadow_3519_185"
-         id="feBlend4" />
-      <feBlend
-         mode="normal"
-         in="SourceGraphic"
-         in2="effect1_dropShadow_3519_185"
-         result="shape"
-         id="feBlend5" />
-    </filter>
-  </defs>
-</svg>
+  </svg>
