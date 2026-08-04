@@ -4,3 +4,12 @@ __pycache__/
 *.pyc
 .DS_Store
 *.xcursor
+
+# snapcraft
+parts/
+stage/
+prime/
+*.snap
+.snapcraft/
+snap/.snapcraft/
+*.snapcraft-manifest

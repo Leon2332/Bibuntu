@@ -1,0 +1,67 @@
+# Content snap: Bibuntu cursor theme for sandboxed snap applications.
+#
+# Local pack (no snapcraft):  make pack
+# Install:  sudo snap install --dangerous icon-theme-bibuntu_*.snap
+# Connect:  scripts/connect-snap-apps.sh
+
+name: icon-theme-bibuntu
+base: bare
+build-base: core24
+version: "0.1.0"
+summary: Bibuntu cursor theme for snap applications
+description: |
+  Bibuntu is a cursor theme for Ubuntu based on Bibata. This content snap
+  exports the theme via the icon-themes interface so strictly confined snaps
+  (Brave, Epiphany, LibreWolf, etc.) can use the same cursors as the host.
+
+  Host (non-snap) apps still need a normal install under
+  ~/.local/share/icons/Bibuntu or /usr/share/icons/Bibuntu — see the project
+  README.
+
+  Connect apps that plug icon-themes:
+
+    scripts/connect-snap-apps.sh
+
+license: GPL-3.0
+grade: stable
+confinement: strict
+compression: lzo
+
+platforms:
+  all:
+    build-on: [amd64]
+    build-for: [all]
+
+# Data only — no apps, daemons, or hooks.
+slots:
+  icon-themes:
+    interface: content
+    content: icon-themes
+    source:
+      read:
+        - $SNAP/share/icons/Bibuntu
+
+parts:
+  bibuntu:
+    plugin: nil
+    source: .
+    source-type: local
+    build-packages:
+      - python3
+      - python3-pil
+      - python3-gi
+      - python3-cairo
+      - gir1.2-rsvg-2.0
+      - librsvg2-2
+      - libcairo2
+      - libgirepository-1.0-1
+    override-build: |
+      set -euo pipefail
+      python3 build_theme.py --no-install
+      install -d "$CRAFT_PART_INSTALL/share/icons"
+      cp -a build/Bibuntu "$CRAFT_PART_INSTALL/share/icons/Bibuntu"
+      # Content snaps must not ship executables or random tree noise.
+      find "$CRAFT_PART_INSTALL" -type f -name '*.pyc' -delete
+      find "$CRAFT_PART_INSTALL" -type d -name '__pycache__' -exec rm -rf {} + 2>/dev/null || true
+    prime:
+      - share/icons/Bibuntu

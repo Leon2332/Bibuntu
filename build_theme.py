@@ -6,12 +6,14 @@ Bibuntu — a cursor theme for Ubuntu based on Bibata.
 
 - Hotspots, sizes, and aliases match Bibata Modern (reference config).
 - Sources: src/svg/*.svg plus animated wait/ and left_ptr_watch/.
-- Installs to ~/.local/share/icons/Bibuntu
+- Default install: ~/.local/share/icons/Bibuntu
+- Snap apps need the content snap (icon-theme-bibuntu); see README.
 """
 
 from __future__ import annotations
 
-import math
+import argparse
+import os
 import re
 import shutil
 import struct
@@ -33,13 +35,23 @@ ROOT = Path(__file__).resolve().parent
 SRC = ROOT / "src" / "svg"
 BUILD = ROOT / "build" / "Bibuntu"
 BITMAPS = ROOT / "build" / "bitmaps"
-INSTALL = Path.home() / ".local" / "share" / "icons" / "Bibuntu"
 # Hotspots, sizes, and X11 aliases (from Bibata Modern x.build.toml)
 BIBATA_TOML = ROOT / "configs" / "x.build.toml"
 
 THEME_NAME = "Bibuntu"
 THEME_COMMENT = "A cursor theme for Ubuntu based on Bibata"
 CANVAS = 256  # design canvas size
+SNAP_NAME = "icon-theme-bibuntu"
+
+
+def user_install_path() -> Path:
+    xdg = os.environ.get("XDG_DATA_HOME")
+    base = Path(xdg) if xdg else Path.home() / ".local" / "share"
+    return base / "icons" / THEME_NAME
+
+
+def system_install_path() -> Path:
+    return Path("/usr/share/icons") / THEME_NAME
 
 # Animation delay: Bibata uses 40ms for 54 frames. We have 8 frames — 50ms
 # keeps a readable spin (~0.4s/loop) without looking frantic.
@@ -267,7 +279,35 @@ def resolve_anim_frames(key: str) -> list[Path]:
 # Build
 # ---------------------------------------------------------------------------
 
-def build(install: bool = True) -> None:
+def apply_gsettings() -> None:
+    """Set GNOME/Ubuntu cursor theme if gsettings is available."""
+    gsettings = shutil.which("gsettings")
+    if not gsettings:
+        print("note: gsettings not found; set cursor theme in desktop settings")
+        return
+    import subprocess
+
+    for args in (
+        [gsettings, "set", "org.gnome.desktop.interface", "cursor-theme", THEME_NAME],
+        [gsettings, "set", "org.gnome.desktop.interface", "cursor-size", "24"],
+    ):
+        try:
+            subprocess.run(args, check=False, capture_output=True)
+        except OSError as exc:
+            print(f"note: could not run gsettings: {exc}")
+            return
+    print(f"Applied: cursor-theme={THEME_NAME}, cursor-size=24")
+
+
+def install_theme(dest: Path) -> None:
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    if dest.exists():
+        shutil.rmtree(dest)
+    shutil.copytree(BUILD, dest, symlinks=True)
+    print(f"Installed → {dest}")
+
+
+def build(*, install: bool = True, install_dir: Path | None = None, apply: bool = False) -> None:
     if not BIBATA_TOML.is_file():
         sys.exit(f"Missing Bibata config: {BIBATA_TOML}")
     if not SRC.is_dir():
@@ -378,18 +418,62 @@ def build(install: bool = True) -> None:
         print("Missing sources:", ", ".join(missing))
 
     if install:
-        if INSTALL.exists():
-            shutil.rmtree(INSTALL)
-        shutil.copytree(BUILD, INSTALL, symlinks=True)
-        print(f"Installed → {INSTALL}")
+        dest = install_dir if install_dir is not None else user_install_path()
+        install_theme(dest)
+        if apply:
+            apply_gsettings()
+        else:
+            print(
+                "\nApply with:\n"
+                f"  gsettings set org.gnome.desktop.interface cursor-theme '{THEME_NAME}'\n"
+                "  gsettings set org.gnome.desktop.interface cursor-size 24\n"
+                "  # or: python3 build_theme.py --apply  (reuses build + install)\n"
+                "  # then log out/in or restart the session if needed"
+            )
         print(
-            "\nApply with:\n"
-            f"  gsettings set org.gnome.desktop.interface cursor-theme '{THEME_NAME}'\n"
-            "  gsettings set org.gnome.desktop.interface cursor-size 24\n"
-            "  # then log out/in or restart the session if needed"
+            "\nSnap apps cannot read this host path. For Brave and other snaps:\n"
+            f"  make pack && sudo snap install --dangerous {SNAP_NAME}_*.snap\n"
+            "  scripts/connect-snap-apps.sh\n"
+            "  See README.md"
         )
 
 
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    p = argparse.ArgumentParser(description="Build and install the Bibuntu cursor theme")
+    p.add_argument(
+        "--no-install",
+        action="store_true",
+        help="Only write build/Bibuntu (used by snap packaging)",
+    )
+    p.add_argument(
+        "--system",
+        action="store_true",
+        help="Install to /usr/share/icons/Bibuntu (requires write permission)",
+    )
+    p.add_argument(
+        "--prefix",
+        type=Path,
+        default=None,
+        help="Install under PREFIX/share/icons/Bibuntu (e.g. /usr or a package DESTDIR/usr)",
+    )
+    p.add_argument(
+        "--apply",
+        action="store_true",
+        help="After install, set GNOME cursor-theme via gsettings",
+    )
+    return p.parse_args(argv)
+
+
 if __name__ == "__main__":
-    install = "--no-install" not in sys.argv
-    build(install=install)
+    args = parse_args()
+    install_dir: Path | None = None
+    if args.prefix is not None:
+        install_dir = args.prefix / "share" / "icons" / THEME_NAME
+    elif args.system:
+        install_dir = system_install_path()
+
+    build(
+        install=not args.no_install,
+        install_dir=install_dir,
+        apply=args.apply and not args.no_install,
+    )
